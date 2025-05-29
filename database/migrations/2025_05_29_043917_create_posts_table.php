@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
             $table->string('title')->comment('title of post');
             $table->text('content')->comment('content of post');
             $table->string('slug')->comment('URL identifier of the post');
@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('status')->comment('D - Draft, P - Published, I - Inactive');
             $table->string('featured_image_url')->comment('Image displayed');
             $table->integer('views_count')->comment('total number of views')->default(0);
-            $table->timestamps();
         });
     }
 
