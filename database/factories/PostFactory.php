@@ -22,6 +22,7 @@ class PostFactory extends Factory
 
         return [
             "title" => $title,
+            "content" => fake()->paragraph(),
             "slug" => Str::slug($title),
             "publication_date" => $status == 'P' ? now() : null,
             "status" => $status,
