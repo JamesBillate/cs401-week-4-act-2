@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id('id')->primary();
-            $table->text('comment_context');
-            $table->string('reviewer_name')->nullable();
-            $table->string('reviewer_email')->nullable();
-            $table->boolean('is_hidden')->default(false);
+        Schema::table('media', function (Blueprint $table) {
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
         });
     }
 
@@ -25,6 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign(['post_id']);
+            $table->dropColumn(['post_id']);
+        });
     }
 };
