@@ -22,16 +22,6 @@ class PostSeeder extends Seeder
             return;
         };
 
-        Post::factory(15)->create([
-            'user_id' => $user->random()->id,
-        ]);
-
-        $categories = Category::all();
-        $posts = Post::all();
-
-        foreach ($posts as $post) {
-            $randomCats = $categories->random(rand(1, 3));
-            $post->categories()->attach($randomCats);
-        }
+        Post::factory(15)->create();
     }
 }

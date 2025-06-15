@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('media', function (Blueprint $table) {
+        Schema::table('comments', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('post_id')->constrained()->onDelete('cascade');
         });
     }
@@ -22,8 +23,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('comments', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
             $table->dropForeign(['post_id']);
-            $table->dropColumn(['post_id']);
+            $table->dropColumn('user_id', 'post_id');
         });
     }
 };
