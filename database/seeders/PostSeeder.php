@@ -10,29 +10,18 @@ use App\Models\Post;
 
 class PostSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        $user = User::all();
-
-        if ($user->count() === 0)
+        /**
+         * Run the database seeds.
+         */
+        public function run(): void
         {
-            echo 'No users found, please run UserSeeder.';
-            return;
-        };
+                $user = User::all();
 
-        Post::factory(10)->create([
-            'user_id' => $user->random()->id,
-        ]);
+                if ($user->count() === 0) {
+                        echo 'No users found, please run UserSeeder.';
+                        return;
+                };
 
-        $categories = Category::all();
-        $posts = Post::all();
-
-        foreach ($posts as $post){
-            $randomCats = $categories->random(rand(1, 3));
-            $post->categories()->attach($randomCats); 
+                Post::factory(15)->create();
         }
-    }
 }

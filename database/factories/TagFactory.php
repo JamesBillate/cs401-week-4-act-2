@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
  */
-class CategoryFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_name' => fake()->word(1, true),
-            'slug' => Str::slug(fake()->words(1, true)),
-            'description' => Str::limit(fake()->paragraph(), 50),
+            'tag_name' => fake()->words(1, true),
+            'slug' => Str::slug(fake()->words(3, true)),
         ];
     }
 }

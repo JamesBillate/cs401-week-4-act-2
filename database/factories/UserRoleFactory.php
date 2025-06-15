@@ -2,13 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class RoleFactory extends Factory
+class UserRoleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +19,8 @@ class RoleFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => fake()->paragraph(),
+            'user_id' => User::inRandomOrder()->value('id'),
+            'role_id' => Role::inRandomOrder()->value('id'),
         ];
     }
 }
