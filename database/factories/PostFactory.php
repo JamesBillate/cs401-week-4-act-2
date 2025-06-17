@@ -22,7 +22,6 @@ class PostFactory extends Factory
         $status = fake()->randomElement(['D', 'P', 'I']);
 
         return [
-            'user_id' => User::inRandomOrder()->value('id'),
             "title" => $title,
             "content" => fake()->paragraph(),
             "slug" => Str::slug($title),
