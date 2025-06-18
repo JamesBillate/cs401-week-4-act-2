@@ -18,12 +18,18 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
+
+        $user = User::all();
+        $userID = $user->random()->id;
+
+        $postID = Post::inRandomOrder()->value('id');
+
         return [
-            'user_id' => User::inRandomOrder()->value('id'),
-            'post_id' => Post::inRandomOrder()->value('id'),
-            'reviewer_name' => User::inRandomOrder()->value('name'),
+            'user_id' => $userID,
+            'post_id' => $postID,
+            'reviewer_name' => $user->find($userID)->name,
             'comment_context' => fake()->paragraph(),
-            'reviewer_email' => User::inRandomOrder()->value('email')
+            'reviewer_email' => $user->find($userID)->email,
         ];
     }
 }

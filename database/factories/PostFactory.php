@@ -18,10 +18,12 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $userID = User::inRandomOrder()->value('id');
         $title = fake()->word();
         $status = fake()->randomElement(['D', 'P', 'I']);
 
         return [
+            "user_id" => $userID,
             "title" => $title,
             "content" => fake()->paragraph(),
             "slug" => Str::slug($title),

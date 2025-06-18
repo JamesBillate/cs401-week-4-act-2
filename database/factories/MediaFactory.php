@@ -26,7 +26,6 @@ class MediaFactory extends Factory
             'url' => fake()->url(),
             'description' => Str::limit(fake()->paragraph(), 50),
             'upload_date' => now(),
-
         ];
     }
 }
