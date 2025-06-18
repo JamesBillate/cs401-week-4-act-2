@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id')->primary();
             $table->string('tag_name')->max(45);
             $table->string('slug');
-            $table->timestamps();
         });
     }
 

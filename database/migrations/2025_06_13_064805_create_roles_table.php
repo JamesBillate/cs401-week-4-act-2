@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id')->primary();
             $table->string('role_name')->max(1)->comment('A - Admin, C - Contributor, S - Subscriber');
             $table->string('description');
-            $table->timestamps();
         });
     }
 

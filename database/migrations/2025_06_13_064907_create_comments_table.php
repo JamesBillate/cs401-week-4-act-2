@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('reviewer_name')->nullable();
             $table->string('reviewer_email')->nullable();
             $table->boolean('is_hidden')->default(false);
+            $table->timestamps();
         });
     }
 

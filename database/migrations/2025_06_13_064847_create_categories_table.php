@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('category_name')->max(30)->comment('News, Review, Podcast, Opinion, Lifestyle, etc.');
             $table->string('slug');
             $table->string('description');
-            $table->timestamps();
         });
     }
 
