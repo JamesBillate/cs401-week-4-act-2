@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('media', function (Blueprint $table) {
-            $table->id('id')->primary();
+            $table->id('id');
             $table->string('file_name');
             $table->string('file_type')->max(10);
             $table->integer('file_size')->default(0);

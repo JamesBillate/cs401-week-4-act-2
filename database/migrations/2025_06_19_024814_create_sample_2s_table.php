@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('category_name')->max(30)->comment('News, Review, Podcast, Opinion, Lifestyle, etc.');
-            $table->string('slug');
-            $table->string('description');
+        Schema::create('sample_2s', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('sample_2s');
     }
 };

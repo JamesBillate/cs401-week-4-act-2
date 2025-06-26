@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->id('id')->primary();
+            $table->id('id');
             $table->string('tag_name')->max(45);
             $table->string('slug');
         });

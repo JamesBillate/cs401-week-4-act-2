@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id('id')->primary();
+            $table->id('id');
             $table->text('comment_context');
             $table->string('reviewer_name')->nullable();
             $table->string('reviewer_email')->nullable();
