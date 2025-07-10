@@ -25,6 +25,7 @@ class PostSeeder extends Seeder
                 Post::factory(100)->make()->each(function ($post) use ($user) {
                         $post->user_id = $user->random()->id;
                         $post->save();
+                        $post->view_count = rand(0, 99);
                 });
         }
 }
